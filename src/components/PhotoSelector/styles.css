@@ -1,0 +1,85 @@
+.proyect--Title {
+    color: var(--wine);
+    font-size: 30px;
+    text-align: left;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    margin-top: -1rem;
+}
+
+.proyect__Box--Title {
+    margin: 0.2rem 0 1rem 0;
+    border: var(--wine) solid 2px;
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.proyect__Box--Title:focus {
+    outline: none;
+    border: #26666e solid 2px;
+    border-radius: 5px;
+}
+
+.forms__Container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-file {
+    padding: 0.5rem 0;
+}
+
+.form-control-file {
+    font-size: 10px;
+    padding: 0 0 0 0.5rem;
+    letter-spacing: -1px;
+}
+
+label {
+    color: var(--wine);
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: -1px;
+}
+
+.project__Button--Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.proyect__Button--Build {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-size: 18px;
+    background-color: var(--wine);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: #000 2px 2px 5px;
+}
+
+.proyect__Button--Gallery {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-size: 18px;
+    background-color: #26666e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: #000 2px 2px 5px;
+}
+
+.project--Icon {
+    font-size: 20px;
+    color: var(--wine);
+    font-weight: bolder;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 0.6rem;
+    animation: wobbleHand 5s both infinite;
+    cursor: pointer
+}
+

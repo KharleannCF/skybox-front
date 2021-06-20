@@ -1,0 +1,220 @@
+/* ---- NAVBAR CIRCLE ---- */
+
+.navbar__Circle--Container {
+    position: fixed;
+    top: -10rem;
+    left: -9rem;
+    z-index: 2;
+}
+
+.navbar__Circle {
+    padding: 1rem;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    background-color: var(--wine);
+    box-shadow: 2px 2px 5px #000;
+}
+
+.navbar__Menu--Open {
+    position: relative;
+    top: 75%;
+    left: 57%;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.navbar__Menu--Close {
+    position: relative;
+    top: 70%;
+    left: 13%;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.opening__Menu {
+    animation: open 0.2s ease-in;
+    transform: rotate(-90deg);
+}
+
+.closing__Menu {
+    animation: close 0.2s ease-in;
+    transform: rotate(0deg);
+}
+
+/* ---- NAVBAR BANER ---- */
+
+.navbar__Background--Container {
+    width: 100vw;
+    height: 9rem;
+    background-image: url("../../assets/images/Banner.gif");
+    background-size: cover;
+    background-position-y: 75%;
+}
+
+.background--SeparationBar {
+    margin-bottom: 0;
+    width: 100vw;
+    height: 1vh;
+    background-color: var(--wine);
+    box-shadow: 0px 2px 3px #000;
+}
+
+/* ---- NAVBAR TRIANGLE ---- */
+
+.navbar__Triangle--Container {
+    position: absolute;
+    background-color: #26666e;
+    top: -5rem;
+    left: -20rem;
+    width: 17.9rem;
+    height: 130%;
+    z-index: 1;
+    text-align: center;
+}
+
+.opening__Menu--Tags {
+    transform-origin: top;
+    animation: openTags 0.1s ease-in;
+    transform: rotate(-18deg);
+}
+
+.closing__Menu--Tags {
+    transform-origin: top;
+    animation: closeTags 0.1s ease-in;
+    transform: rotate(0deg);
+}
+
+/* ---- NAVBAR TAGS ---- */
+
+.navbar__Tags--Container {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    color: white;
+    z-index: 2;
+    font-size: 14px;
+}
+
+.tag__Container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.throw__Position--1 {
+    animation: throwTag 0.5s 0.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.throw__Position--2 {
+    margin-left: 1rem;
+    animation: throwTag 0.5s 0.4s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.throw__Position--3 {
+    margin-left: 2rem;
+    animation: throwTag 0.5s 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.tag__Icon {
+    border-radius: 50%;
+    margin: 10px;
+    padding: 8px;
+    border: white solid 2px;
+}
+
+.tag--Name {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.tags__Open {
+    display: initial;
+}
+
+.tags__Close {
+    animation: throwTag 1s 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+/* ---- ANIMATIONS ---- */
+/* --- Circle --- */
+
+@keyframes open {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-90deg);
+    }
+}
+
+@keyframes close {
+    0% {
+        transform: rotate(-90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* --- Triangle --- */
+
+@keyframes openTags {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-20deg);
+    }
+}
+
+@keyframes closeTags {
+    0% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* --- Tags --- */
+@keyframes throwTag {
+    0% {
+        transform: translateY(1000px) rotate(920deg);
+        filter: blur(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes recoverTag {
+    0% {
+        transform: translateY(0px) rotate(920deg);
+        filter: blur(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px) rotate(0deg);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+@media (min-width: 900px) {
+    .opening__Menu--Tags {
+        transform: rotate(-20deg);
+    }
+
+    .navbar__Tags--Container {
+        bottom: 2rem;
+        left: 1rem;
+        font-size: 20px;
+    }
+}

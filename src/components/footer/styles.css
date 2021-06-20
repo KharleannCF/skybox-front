@@ -1,0 +1,42 @@
+.footer__Container {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 3vh;
+    background-color: var(--wine);
+    z-index: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+    font-size: small;
+    overflow-x: hidden;
+}
+
+.footer__Copyright {
+    animation: displayCopyright 5s both infinite linear
+}
+
+@media (min-width: 900px) {
+    .footer__Container {
+        justify-content: center;
+    }
+
+    .footer__Copyright {
+        margin-right: 0rem;
+        animation: none;
+    }
+
+}
+
+/* ---- ANIMATIONS ---- */
+@keyframes displayCopyright {
+    0% {
+        transform: translateX(20%);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-150%);
+        opacity: 0;
+      }
+}

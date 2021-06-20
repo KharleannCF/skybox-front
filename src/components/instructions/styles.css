@@ -1,0 +1,59 @@
+.instruction__Container {
+    margin: 2rem;
+}
+
+.instruction--Title {
+    color: var(--wine);
+    font-size: 35px;
+    text-align: left;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    padding-bottom: 0.5rem; 
+}
+
+.instruction--Paragraph {
+    padding: 0.5rem
+}
+
+.instruction--Image {
+    width: 250px;
+    height: 160px;
+    position: relative;
+    left: 5%;
+    top: 0.5rem;
+    box-shadow: 2px 2px 5px #000;
+}
+
+.instruction--Icon {
+    font-size: 20px;
+    color: var(--wine);
+    font-weight: bolder;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 0.6rem;
+    animation: wobbleHand 5s both infinite;
+    cursor: pointer;
+}
+
+@keyframes wobbleHand {
+    0%,
+    100% {
+              transform: translateX(0%);
+              transform-origin: 50% 50%;
+    }
+    15% {
+              transform: translateX(-5px) rotate(-6deg);
+    }
+    30% {
+              transform: translateX(5px) rotate(6deg);
+    }
+    45% {
+              transform: translateX(-8px) rotate(-3.6deg);
+    }
+    60% {
+              transform: translateX(8px) rotate(2.4deg);
+    }
+    75% {
+              transform: translateX(-6px) rotate(-1.2deg);
+    }
+  }
