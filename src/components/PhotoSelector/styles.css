@@ -1,3 +1,7 @@
+.selector__Container {
+    margin: 2rem;
+}
+
 .proyect--Title {
     color: var(--wine);
     font-size: 30px;

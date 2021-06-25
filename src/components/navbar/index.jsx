@@ -22,18 +22,16 @@ function Navbar() {
                     }
                 >
                     <i
-                        class="fas fa-times-circle navbar__Menu--Close"
+                        className="fas fa-times-circle navbar__Menu--Close"
                         onClick={(_) => setNavbarState("close")}
                     ></i>
                     <i
-                        class="fas fa-bars navbar__Menu--Open"
+                        className="fas fa-bars navbar__Menu--Open"
                         onClick={(_) => setNavbarState("open")}
                     ></i>
                 </div>
             </div>
-            <div className="navbar__Background--Container">
-                
-            </div>
+            <div className="navbar__Background--Container"></div>
             <div className="background--SeparationBar"></div>
             <div
                 className={
@@ -52,16 +50,22 @@ function Navbar() {
                         : "navbar__Tags--Container tags__Close"
                 }
             >
-                
-                    {navbarState === "open" && tags.map((tag, index) => {
-
+                {navbarState === "open" &&
+                    tags.map((tag, index) => {
                         return (
-                            <div className={`tag__Container throw__Position--${index + 1}`}>
-                                <i class={`fas fa-${tag.icon} tag__Icon`} ></i>
-                                <p className="tag--Name">{tag.name}</p></div>
+                            <div
+                                className={`tag__Container throw__Position--${
+                                    index + 1
+                                }`}
+                                key={index + 1}
+                            >
+                                <i
+                                    className={`fas fa-${tag.icon} tag__Icon`}
+                                ></i>
+                                <p className="tag--Name">{tag.name}</p>
+                            </div>
                         );
                     })}
-                
             </div>
         </>
     );

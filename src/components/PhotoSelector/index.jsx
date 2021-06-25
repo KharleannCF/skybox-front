@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import { Progress } from "reactstrap"
 import "./styles.css";
 
-function instructions({ setStep, handleSubmit }) {
+function PhotoSelector({ setStep, handleSubmit }) {
+    const [loaded, setLoaded] = useState(0)
+    const [loading, setLoading] = useState(false)
     return (
-        <div className="instruction__Container">
-            <Form
-                onSubmit={(e) => {
-                    handleSubmit(e);
-                }}
+        <div className="selector__Container">
+            <Form onSubmit={(e)=>{handleSubmit(e, setLoaded, setLoading)}}
             >
                 <Form.Group>
                     <h3 className="proyect--Title">Titulo del proyecto</h3>
@@ -27,11 +27,16 @@ function instructions({ setStep, handleSubmit }) {
                         <Form.File id="bottom" label="Vista del Suelo:" />
                     </div>
                 </Form.Group>
+                <div className="form-group">
+                    <Progress max="100" color="success" value={loaded}>{Math.round(loaded,2)}%</Progress>
+                </div>
                 <div className="project__Button--Container">
                     <button className="proyect__Button--Build">
                         Construir
                     </button>
-                    <button className="proyect__Button--Gallery">
+                    <button onClick={(_) => {
+                    setStep(2);
+                }} className="proyect__Button--Gallery">
                         Mis Proyectos
                     </button>
                 </div>
@@ -40,10 +45,10 @@ function instructions({ setStep, handleSubmit }) {
                 onClick={(_) => {
                     setStep(0);
                 }}
-                class="fas fa-hand-point-left project--Icon"
+                className="fas fa-hand-point-left project--Icon"
             ></i>
         </div>
     );
 }
 
-export default instructions;
+export default PhotoSelector;
