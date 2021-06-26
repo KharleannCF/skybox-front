@@ -60,7 +60,7 @@ function SkyBox() {
     async function fetchData() {
       const sceneName = window.location.href.split("/").pop();
 			const getImages = await axios.get(
-				`/api/scenes/getimages/${sceneName}`
+				`/api/scene/getimages/${sceneName}`
 			);
 			setImage(getImages.data.scenes);
 		}
