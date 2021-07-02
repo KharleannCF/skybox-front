@@ -13,16 +13,18 @@ export async function handleSubmit(e, setLoaded, setLoading) {
 
   const formData = new FormData();
 
-  formData.append("text", text.value);
-  formData.append("front", front.files[0]);
-  formData.append("right", right.files[0]);
-  formData.append("back", back.files[0]);
-  formData.append("left", left.files[0]);
-  formData.append("top", top.files[0]);
-  formData.append("bottom", bottom.files[0]);
-  const response = await axios.post("/upload", formData, {
+  await formData.append("text", text.value);
+  await formData.append("front", front.files[0]);
+  await formData.append("right", right.files[0]);
+  await formData.append("back", back.files[0]);
+  await formData.append("left", left.files[0]);
+  await formData.append("top", top.files[0]);
+  await formData.append("bottom", bottom.files[0]);
+  const response = await axios.post("/api/scene", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGQ2NTc4YjMxZjAyMzBhOTQ3ZmM0ZGEiLCJpYXQiOjE2MjQ2NzQ0NDJ9.OoO-Gm4s45olHIhsFoEdxVALd-tEFFUygt03uRdPlhw",
     },
     onUploadProgress: (ProgressEvent) => {
       if ((ProgressEvent.loaded / ProgressEvent.total) * 100 > 99)
@@ -33,6 +35,11 @@ export async function handleSubmit(e, setLoaded, setLoading) {
 }
 
 export async function getScenes(setter) {
-  const scenes = await axios.get("/api/scenes");
+  const scenes = await axios.get("/api/scene", {
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGQ2NTc4YjMxZjAyMzBhOTQ3ZmM0ZGEiLCJpYXQiOjE2MjQ2NzQ0NDJ9.OoO-Gm4s45olHIhsFoEdxVALd-tEFFUygt03uRdPlhw",
+    },
+  });
   setter(scenes.data.scenes);
 }
