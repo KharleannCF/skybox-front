@@ -1,10 +1,22 @@
+/* ---- NAVBAR COVER IMAGE ---- */
+.navbarScreen__Open {
+    background-image: linear-gradient(to top, rgba(159, 72, 83, 0.6) 0%, rgba(38, 102, 110, 0.8) 100%), url("../../assets/images/NavbarScreen.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    animation: focusPointOfImage 5s ease-out both;
+    z-index: 2;
+}
+
 /* ---- NAVBAR CIRCLE ---- */
 
 .navbar__Circle--Container {
     position: fixed;
     top: -10rem;
     left: -9rem;
-    z-index: 2;
+    z-index: 3;
 }
 
 .navbar__Circle {
@@ -71,7 +83,7 @@
     left: -20rem;
     width: 17.9rem;
     height: 130%;
-    z-index: 1;
+    z-index: 2;
     text-align: center;
 }
 
@@ -94,7 +106,7 @@
     bottom: 1rem;
     left: 0;
     color: white;
-    z-index: 2;
+    z-index: 3;
     font-size: 14px;
 }
 
@@ -140,6 +152,20 @@
 }
 
 /* ---- ANIMATIONS ---- */
+/* --- Cover Background --- */
+@keyframes focusPointOfImage {
+    0% {
+              transform: scale(1) translate(0, 0);
+              transform-origin: 16% 84%;
+    }
+    100% {
+              transform: scale(1.25) translate(-20px, 15px);
+              transform-origin: left bottom;
+    }
+  }
+  
+
+
 /* --- Circle --- */
 
 @keyframes open {

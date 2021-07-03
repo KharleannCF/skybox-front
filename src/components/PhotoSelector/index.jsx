@@ -1,14 +1,43 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Progress } from "reactstrap"
+import { Progress } from "reactstrap";
+import HouseSketch from "../../assets/images/HouseSketch.jpg";
 import "./styles.css";
 
 function PhotoSelector({ setStep, handleSubmit }) {
-    const [loaded, setLoaded] = useState(0)
-    const [loading, setLoading] = useState(false)
+    const [loaded, setLoaded] = useState(0);
+    const [houseSection, setHouseSection] = useState("floor");
+    const [loading, setLoading] = useState(false);
+
+    const selectedSection = (section) => {
+        switch (section) {
+            case "floor":
+                setHouseSection("frontWall");
+                break;
+            case "frontWall":
+                setHouseSection("rightWall");
+                break;
+            case "rightWall":
+                setHouseSection("backWall");
+                break;
+            case "backWall":
+                setHouseSection("leftWall");
+                break;
+            case "leftWall":
+                setHouseSection("roof");
+                break;
+            case "roof":
+                console.log("fin");
+                break;
+        }
+    };
+
     return (
         <div className="selector__Container">
-            <Form onSubmit={(e)=>{handleSubmit(e, setLoaded, setLoading)}}
+            <Form
+                onSubmit={(e) => {
+                    handleSubmit(e, setLoaded, setLoading);
+                }}
             >
                 <Form.Group>
                     <h3 className="proyect--Title">Titulo del proyecto</h3>
@@ -18,28 +47,117 @@ function PhotoSelector({ setStep, handleSubmit }) {
                         id="text"
                         placeholder="Enter name of the project"
                     />
-                    <div className="forms__Container">
-                        <Form.File id="front" label="Vista de Frente:" />
-                        <Form.File id="back" label="Vista de Atrás:" />
-                        <Form.File id="left" label="Vista Izquierda:" />
-                        <Form.File id="right" label="Vista Derecha:" />
-                        <Form.File id="top" label="Vista del Techo:" />
-                        <Form.File id="bottom" label="Vista del Suelo:" />
+                    <div className="proyect__Section__Container">
+                        <img
+                            className="proyect__Box--Background"
+                            src={HouseSketch}
+                            alt="Sketch of a House drawed bt VeenusLaey"
+                        />
+                        {houseSection === "floor" ? (
+                            <label
+                                className="proyect__Button--Build Floor"
+                                for="bottom"
+                            >
+                                Seleccionar Piso
+                                <input
+                                    id="bottom"
+                                    type="file"
+                                    value=""
+                                    onChange={(_) =>
+                                        selectedSection(houseSection)
+                                    }
+                                />
+                            </label>
+                        ) : houseSection === "frontWall" ? (
+                            <label
+                                className="proyect__Button--Build frontWall"
+                                for="front"
+                            >
+                                Pared frontal
+                                <input
+                                    id="front"
+                                    type="file"
+                                    value=""
+                                    onChange={(_) =>
+                                        selectedSection(houseSection)
+                                    }
+                                />
+                            </label>
+                        ) : houseSection === "rightWall" ? (
+                            <label
+                                className="proyect__Button--Build rightWall"
+                                for="right"
+                            >
+                                Pared derecha
+                                <input
+                                    id="right"
+                                    type="file"
+                                    value=""
+                                    onChange={(_) =>
+                                        selectedSection(houseSection)
+                                    }
+                                />
+                            </label>
+                        ) : houseSection === "backWall" ? (
+                            <label
+                                className="proyect__Button--Build backWall"
+                                for="back"
+                            >
+                                Pared trasera
+                                <input
+                                    id="back"
+                                    type="file"
+                                    value=""
+                                    onChange={(_) =>
+                                        selectedSection(houseSection)
+                                    }
+                                />
+                            </label>
+                        ) : houseSection === "leftWall" ? (
+                            <label
+                                className="proyect__Button--Build leftWall"
+                                for="left"
+                            >
+                                Pared trasera
+                                <input
+                                    id="left"
+                                    type="file"
+                                    value=""
+                                    onChange={(_) =>
+                                        selectedSection(houseSection)
+                                    }
+                                />
+                            </label>
+                        ) : (
+                            <label
+                                className="proyect__Button--Build roof"
+                                for="top"
+                            >
+                                Techo
+                                <input
+                                    id="top"
+                                    type="file"
+                                    value=""
+                                    onChange={(_) =>
+                                        selectedSection(houseSection)
+                                    }
+                                />
+                            </label>
+                        )}
+
+                        <Progress max="100" color="green" value={loaded}>
+                            {Math.round(loaded, 2)}%
+                        </Progress>
                     </div>
                 </Form.Group>
-                <div className="form-group">
-                    <Progress max="100" color="success" value={loaded}>{Math.round(loaded,2)}%</Progress>
-                </div>
-                <div className="project__Button--Container">
-                    <button className="proyect__Button--Build">
-                        Construir
-                    </button>
-                    <button onClick={(_) => {
-                    setStep(2);
-                }} className="proyect__Button--Gallery">
-                        Mis Proyectos
-                    </button>
-                </div>
+                <button
+                    onClick={(_) => {
+                        setStep(2);
+                    }}
+                    className="proyect__Button--Gallery"
+                >
+                    Mis Proyectos
+                </button>
             </Form>
             <i
                 onClick={(_) => {

@@ -8,6 +8,10 @@ body {
 }
 
 :root {
-  --wine: #9F4853;
+  --wine: #9f4853;
   --beige: #C7A188;
+}
+
+input[type="file"] {
+  display: none;
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css";
+import Cover from "../../assets/images/NavbarScreen.jpg"
 
 function Navbar() {
     const [navbarState, setNavbarState] = useState("");
@@ -11,6 +12,8 @@ function Navbar() {
 
     return (
         <>
+        <div className={
+                    navbarState === "open"? "navbarScreen__Open" : "navbarScreen__Close"}></div>
             <div className="navbar__Circle--Container">
                 <div
                     className={
@@ -41,7 +44,8 @@ function Navbar() {
                         ? "navbar__Triangle--Container closing__Menu--Tags"
                         : "navbar__Triangle--Container"
                 }
-            ></div>
+            > 
+            </div>
 
             <div
                 className={

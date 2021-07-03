@@ -25,33 +25,15 @@
     border-radius: 5px;
 }
 
-.forms__Container {
+.proyect__Section__Container {
     display: flex;
-    flex-wrap: wrap;
-}
-
-.form-file {
-    padding: 0.5rem 0;
-}
-
-.form-control-file {
-    font-size: 10px;
-    padding: 0 0 0 0.5rem;
-    letter-spacing: -1px;
-}
-
-label {
-    color: var(--wine);
-    font-weight: bold;
-    font-size: 20px;
-    letter-spacing: -1px;
-}
-
-.project__Button--Container {
-    display: flex;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
-    padding-top: 1rem;
+}
+
+.proyect__Box--Background {
+    width: 100%;
 }
 
 .proyect__Button--Build {
@@ -63,6 +45,12 @@ label {
     border: none;
     border-radius: 5px;
     box-shadow: #000 2px 2px 5px;
+    position: relative;
+    font-family: Arial;
+}
+
+.Floor {
+    bottom: 2rem;
 }
 
 .proyect__Button--Gallery {
