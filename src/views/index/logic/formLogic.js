@@ -1,15 +1,16 @@
 import axios from "axios";
 
-export async function handleSubmit(e, setLoaded, setLoading) {
+export async function handleSubmit(e, setLoaded, setLoading, files) {
   setLoading(true);
   e.preventDefault();
   const text = document.getElementById("text");
-  const front = document.getElementById("front");
-  const right = document.getElementById("right");
-  const back = document.getElementById("back");
-  const left = document.getElementById("left");
-  const top = document.getElementById("top");
-  const bottom = document.getElementById("bottom");
+  const front = files.front;
+  const right = files.right;
+  const back = files.back;
+  const left = files.left;
+  const top = files.top;
+  const bottom = files.bottom;
+
   console.log("==============================================", {
     text,
     front,
@@ -19,15 +20,16 @@ export async function handleSubmit(e, setLoaded, setLoading) {
     top,
     bottom,
   });
+
   const formData = new FormData();
 
   await formData.append("text", text.value);
-  await formData.append("front", front.files[0]);
-  await formData.append("right", right.files[0]);
-  await formData.append("back", back.files[0]);
-  await formData.append("left", left.files[0]);
-  await formData.append("top", top.files[0]);
-  await formData.append("bottom", bottom.files[0]);
+  await formData.append("front", front);
+  await formData.append("right", right);
+  await formData.append("back", back);
+  await formData.append("left", left);
+  await formData.append("top", top);
+  await formData.append("bottom", bottom);
 
   const response = await axios.post("/api/scene", formData, {
     headers: {

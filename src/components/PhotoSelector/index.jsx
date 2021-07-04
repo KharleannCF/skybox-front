@@ -8,7 +8,13 @@ function PhotoSelector({ setStep, handleSubmit }) {
     const [loaded, setLoaded] = useState(0);
     const [houseSection, setHouseSection] = useState("floor");
     const [loading, setLoading] = useState(false);
-
+    const [files, setFiles] = useState({
+        front:"",
+        right:"",
+        back:"",
+        left:"",
+        top:"",
+        bottom:"",})
     const selectedSection = (section) => {
         switch (section) {
             case "floor":
@@ -36,7 +42,7 @@ function PhotoSelector({ setStep, handleSubmit }) {
         <div className="selector__Container">
             <Form
                 onSubmit={(e) => {
-                    handleSubmit(e, setLoaded, setLoading);
+                    handleSubmit(e, setLoaded, setLoading, files);
                 }}
             >
                 <Form.Group>
@@ -63,8 +69,11 @@ function PhotoSelector({ setStep, handleSubmit }) {
                                     id="bottom"
                                     type="file"
                                     value=""
-                                    onChange={(_) =>
-                                        selectedSection(houseSection)
+                                    onChange={(e) =>
+                                        {selectedSection(houseSection)
+                                        const  newState = {...files}
+                                        newState["bottom"] = e.target.files[0] 
+                                        setFiles(newState)}
                                     }
                                 />
                             </label>
@@ -78,8 +87,11 @@ function PhotoSelector({ setStep, handleSubmit }) {
                                     id="front"
                                     type="file"
                                     value=""
-                                    onChange={(_) =>
-                                        selectedSection(houseSection)
+                                    onChange={(e) =>
+                                        {selectedSection(houseSection)
+                                            const  newState = {...files}
+                                            newState["front"] = e.target.files[0] 
+                                            setFiles(newState)}
                                     }
                                 />
                             </label>
@@ -93,8 +105,11 @@ function PhotoSelector({ setStep, handleSubmit }) {
                                     id="right"
                                     type="file"
                                     value=""
-                                    onChange={(_) =>
-                                        selectedSection(houseSection)
+                                    onChange={(e) =>
+                                        {selectedSection(houseSection)
+                                            const  newState = {...files}
+                                            newState["right"] = e.target.files[0] 
+                                            setFiles(newState)}
                                     }
                                 />
                             </label>
@@ -108,8 +123,11 @@ function PhotoSelector({ setStep, handleSubmit }) {
                                     id="back"
                                     type="file"
                                     value=""
-                                    onChange={(_) =>
-                                        selectedSection(houseSection)
+                                    onChange={(e) =>
+                                        {selectedSection(houseSection)
+                                            const  newState = {...files}
+                                            newState["back"] = e.target.files[0] 
+                                            setFiles(newState)}
                                     }
                                 />
                             </label>
@@ -123,8 +141,11 @@ function PhotoSelector({ setStep, handleSubmit }) {
                                     id="left"
                                     type="file"
                                     value=""
-                                    onChange={(_) =>
-                                        selectedSection(houseSection)
+                                    onChange={(e) =>
+                                        {selectedSection(houseSection)
+                                            const  newState = {...files}
+                                            newState["left"] = e.target.files[0] 
+                                            setFiles(newState)}
                                     }
                                 />
                             </label>
@@ -138,8 +159,11 @@ function PhotoSelector({ setStep, handleSubmit }) {
                                     id="top"
                                     type="file"
                                     value=""
-                                    onChange={(_) =>
-                                        selectedSection(houseSection)
+                                    onChange={(e) =>
+                                        {selectedSection(houseSection)
+                                            const  newState = {...files}
+                                            newState["top"] = e.target.files[0] 
+                                            setFiles(newState)}
                                     }
                                 />
                             </label>
@@ -157,6 +181,11 @@ function PhotoSelector({ setStep, handleSubmit }) {
                     className="proyect__Button--Gallery"
                 >
                     Mis Proyectos
+                </button>
+                <button
+                    className="proyect__Button--Gallery"
+                >
+                    IDK
                 </button>
             </Form>
             <i
