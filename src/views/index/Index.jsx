@@ -3,14 +3,14 @@ import { handleSubmit, getScenes } from "./logic/formLogic";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 import Instructions from "../../components/instructions";
-import PhotoSelector from "../../components/photoSelector"
+import PhotoSelector from "../../components/PhotoSelector"
 import SceneGallery from "../../components/sceneGallery"
 
 function Index() {
     const [scenes, setScenes] = useState([]);
     const [step, setStep] = useState(0);
 
-    useEffect(async () => {
+    useEffect(() => {
         getScenes(setScenes);
     }, []);
 
@@ -30,7 +30,7 @@ function Index() {
 }
 
 export default Index;
-{/*
+/*
                     <>
                     <h1>Upload 6 images</h1>
                     <Form
@@ -97,4 +97,4 @@ return(
             </div>
         </div>
     )
-}*/}
+}*/

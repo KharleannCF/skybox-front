@@ -10,7 +10,15 @@ export async function handleSubmit(e, setLoaded, setLoading) {
   const left = document.getElementById("left");
   const top = document.getElementById("top");
   const bottom = document.getElementById("bottom");
-
+  console.log("==============================================", {
+    text,
+    front,
+    right,
+    back,
+    left,
+    top,
+    bottom,
+  });
   const formData = new FormData();
 
   await formData.append("text", text.value);
@@ -20,6 +28,7 @@ export async function handleSubmit(e, setLoaded, setLoading) {
   await formData.append("left", left.files[0]);
   await formData.append("top", top.files[0]);
   await formData.append("bottom", bottom.files[0]);
+
   const response = await axios.post("/api/scene", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
